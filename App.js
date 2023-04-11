@@ -1,12 +1,13 @@
-import {StyleSheet, View, Text, SafeAreaView} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
+import HomeScreen from './src/screens/HomeScreen';
 import colors from './src/config/colors';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={{color: colors.white}}>Hello World</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <HomeScreen />
+    </View>
   );
 };
 
