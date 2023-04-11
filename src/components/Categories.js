@@ -5,11 +5,12 @@ import categories from '../config/categories';
 import colors from '../config/colors';
 import SPACING from '../config/SPACING';
 
-const Categories = () => {
+const Categories = ({onChange}) => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
 
   const handlePress = id => {
     setActiveCategoryId(id);
+    onChange(id);
   };
   return (
     <FlatList
