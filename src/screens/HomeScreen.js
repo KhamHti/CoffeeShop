@@ -36,22 +36,9 @@ const HomeScreen = () => {
               color={colors.secondary}
             />
           </TouchableOpacity>
-          <View
-            style={{
-              width: SPACING * 4,
-              height: SPACING * 4,
-              overflow: 'hidden',
-              borderRadius: SPACING * 2,
-            }}>
-            <BlurView style={{height: '100%', padding: SPACING / 2}}>
-              <Image
-                source={avater}
-                style={{
-                  height: '100%',
-                  width: '100%',
-                  borderRadius: SPACING * 2,
-                }}
-              />
+          <View style={styles.imgView}>
+            <BlurView style={styles.imgBlur}>
+              <Image source={avater} style={styles.img} />
             </BlurView>
           </View>
         </View>
@@ -67,39 +54,19 @@ const HomeScreen = () => {
               return coffee.categoryId === activeCategoryId;
             })
             .map(coffee => (
-              <View
-                key={coffee.id}
-                style={{
-                  width: width / 2 - SPACING * 1.5,
-                  marginBottom: SPACING,
-                  overflow: 'hidden',
-                }}>
+              <View key={coffee.id} style={styles.coffeeMapView}>
                 <BlurView
                   blurAmount={95}
                   blurType="dark"
                   blurRadius={SPACING}
                   style={{padding: SPACING}}>
-                  <TouchableOpacity style={{width: '100%', height: 150}}>
-                    <Image
-                      source={coffee.image}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: SPACING * 2,
-                      }}
-                    />
-                    <View
-                      style={{
-                        position: 'absolute',
-                        right: 0,
-                        borderBottomStartRadius: SPACING * 3,
-                        borderTopEndRadius: SPACING * 2,
-                        overflow: 'hidden',
-                      }}>
+                  <TouchableOpacity>
+                    <Image source={coffee.image} style={styles.coffeeImg} />
+                    <View style={styles.semiContainer}>
                       <BlurView
                         blurAmount={70}
                         blurType="thickMaterialDark"
-                        style={{flexDirection: 'row', padding: SPACING - 2}}>
+                        style={styles.semiBlur}>
                         <Ionicons
                           style={{marginLeft: SPACING / 2}}
                           name="star"
@@ -116,14 +83,7 @@ const HomeScreen = () => {
                       </BlurView>
                     </View>
                   </TouchableOpacity>
-                  <Text
-                    numberOfLines={2}
-                    style={{
-                      color: colors.white,
-                      fontWeight: '700',
-                      fontSize: SPACING * 2,
-                      marginVertical: SPACING,
-                    }}>
+                  <Text numberOfLines={2} style={styles.coffeeName}>
                     {coffee.name}
                   </Text>
                   <Text
@@ -131,15 +91,8 @@ const HomeScreen = () => {
                     style={{color: colors.secondary, fontSize: SPACING * 1.5}}>
                     {coffee.included}
                   </Text>
-                  <View
-                    style={{
-                      marginVertical: SPACING / 2,
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      borderRadius: SPACING,
-                    }}>
-                    <View style={{flexDirection: 'row'}}>
+                  <View style={styles.semiSecContainer}>
+                    <View style={styles.row}>
                       <Text
                         style={{
                           color: colors.primary,
@@ -190,6 +143,56 @@ const styles = StyleSheet.create({
     width: SPACING * 4,
     height: SPACING * 4,
   },
+  imgView: {
+    width: SPACING * 4,
+    height: SPACING * 4,
+    overflow: 'hidden',
+    borderRadius: SPACING * 2,
+  },
+  img: {
+    height: '100%',
+    width: '100%',
+    borderRadius: SPACING * 2,
+  },
+  imgBlur: {
+    height: '100%',
+    padding: SPACING / 2,
+  },
+  coffeeMapView: {
+    width: width / 2 - SPACING * 1.5,
+    marginBottom: SPACING,
+    overflow: 'hidden',
+  },
+  coffeeImg: {
+    width: '100%',
+    height: 150,
+    borderRadius: SPACING * 2,
+  },
+  semiContainer: {
+    position: 'absolute',
+    right: 0,
+    borderBottomStartRadius: SPACING * 3,
+    borderTopEndRadius: SPACING * 2,
+    overflow: 'hidden',
+  },
+  semiBlur: {
+    flexDirection: 'row',
+    padding: SPACING - 2,
+  },
+  coffeeName: {
+    color: colors.white,
+    fontWeight: '700',
+    fontSize: SPACING * 2,
+    marginVertical: SPACING,
+  },
+  semiSecContainer: {
+    marginVertical: SPACING / 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: SPACING,
+  },
+  row: {flexDirection: 'row'},
 });
 
 export default HomeScreen;

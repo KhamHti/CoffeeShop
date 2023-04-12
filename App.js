@@ -9,7 +9,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <HomeScreen />
-      {/* <CoffeeDetailsScreen coffee={coffees[1]} /> */}
+      <CoffeeDetailsScreen coffee={coffees[1]} />
     </View>
   );
 };

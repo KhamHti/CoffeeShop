@@ -143,32 +143,11 @@ const CoffeeDetailsScreen = ({coffee}) => {
           </View>
         </SafeAreaView>
       </ScrollView>
-      <SafeAreaView
-        style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View
-          style={{
-            padding: SPACING,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginLeft: SPACING * 2,
-          }}>
-          <Text
-            style={{
-              color: colors.white,
-              fontWeight: '700',
-              fontSize: SPACING * 2.5,
-            }}>
-            Price
-          </Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text
-              style={{
-                color: colors.primary,
-                fontWeight: '600',
-                fontSize: SPACING * 1.7,
-              }}>
-              $
-            </Text>
+      <SafeAreaView style={styles.safeStyle}>
+        <View style={styles.safeFirstContainer}>
+          <Text style={styles.priceText}>Price</Text>
+          <View style={styles.priceView}>
+            <Text style={styles.dollorSign}>$</Text>
             <Text
               style={{
                 color: colors.white,
@@ -179,23 +158,8 @@ const CoffeeDetailsScreen = ({coffee}) => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity
-          style={{
-            backgroundColor: colors.primary,
-            borderRadius: SPACING * 2,
-            width: width / 2 + SPACING * 4,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginRight: SPACING * 2,
-          }}>
-          <Text
-            style={{
-              color: colors.white,
-              fontWeight: 'bold',
-              fontSize: SPACING * 2,
-            }}>
-            Buy Now
-          </Text>
+        <TouchableOpacity style={styles.safeSecContainer}>
+          <Text style={styles.buyText}>Buy Now</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
@@ -301,6 +265,40 @@ const styles = StyleSheet.create({
     width: width / 4 - SPACING * 2,
     alignItems: 'center',
   },
+  safeStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  safeFirstContainer: {
+    padding: SPACING,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: SPACING * 2,
+  },
+  safeSecContainer: {
+    backgroundColor: colors.primary,
+    borderRadius: SPACING * 2,
+    width: width / 2 + SPACING * 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: SPACING * 2,
+  },
+  priceText: {
+    color: colors.white,
+    fontWeight: '700',
+    fontSize: SPACING * 2.5,
+  },
+  dollorSign: {
+    color: colors.primary,
+    fontWeight: '600',
+    fontSize: SPACING * 1.7,
+  },
+  buyText: {
+    color: colors.white,
+    fontWeight: 'bold',
+    fontSize: SPACING * 2,
+  },
+  priceView: {flexDirection: 'row', alignItems: 'center'},
 });
 
 export default CoffeeDetailsScreen;

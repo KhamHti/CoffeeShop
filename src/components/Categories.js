@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 
 import categories from '../config/categories';
 import colors from '../config/colors';
@@ -20,7 +20,7 @@ const Categories = ({onChange}) => {
       contentContainerStyle={{marginVertical: SPACING}}
       renderItem={({item}) => (
         <TouchableOpacity
-          style={{marginRight: SPACING * 2, alignItems: 'center'}}
+          style={styles.container}
           onPress={() => handlePress(item.id)}>
           <Text
             style={[
@@ -45,4 +45,12 @@ const Categories = ({onChange}) => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginRight: SPACING * 2,
+    alignItems: 'center',
+  },
+});
+
 export default Categories;
