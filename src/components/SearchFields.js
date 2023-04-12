@@ -1,4 +1,4 @@
-import {View, Text, TextInput} from 'react-native';
+import {View, TextInput} from 'react-native';
 import React from 'react';
 import {BlurView} from '@react-native-community/blur';
 import colors from '../config/colors';

@@ -27,18 +27,9 @@ const HomeScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView style={{padding: SPACING}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
-          <TouchableOpacity
-            style={{
-              borderRadius: SPACING,
-              overflow: 'hidden',
-              width: SPACING * 4,
-              height: SPACING * 4,
-            }}>
+        {/* first container */}
+        <View style={styles.firstContainer}>
+          <TouchableOpacity style={styles.menuStyle}>
             <Ionicons
               name="menu"
               size={SPACING * 2.5}
@@ -66,12 +57,8 @@ const HomeScreen = () => {
         </View>
         <SearchField />
         <Categories onChange={id => setActiveCategoryId(id)} />
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap-reverse',
-            justifyContent: 'space-between',
-          }}>
+        {/* second container */}
+        <View style={styles.secContainer}>
           {coffees
             .filter(coffee => {
               if (activeCategoryId === null) {
@@ -186,5 +173,23 @@ const HomeScreen = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  firstContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  secContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap-reverse',
+    justifyContent: 'space-between',
+  },
+  menuStyle: {
+    borderRadius: SPACING,
+    overflow: 'hidden',
+    width: SPACING * 4,
+    height: SPACING * 4,
+  },
+});
 
 export default HomeScreen;

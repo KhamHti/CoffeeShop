@@ -8,8 +8,8 @@ import coffees from './src/config/coffees';
 const App = () => {
   return (
     <View style={styles.container}>
-      {/* <HomeScreen /> */}
-      <CoffeeDetailsScreen coffee={coffees[1]} />
+      <HomeScreen />
+      {/* <CoffeeDetailsScreen coffee={coffees[1]} /> */}
     </View>
   );
 };
